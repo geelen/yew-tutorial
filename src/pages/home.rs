@@ -1,13 +1,28 @@
 use yew::prelude::*;
 
-pub struct Home {}
+struct Product {
+    name: String,
+    description: String,
+    image: String,
+    price: f64,
+}
+
+struct State {
+    products: Vec<Product>,
+}
+
+pub struct Home {
+    state: State,
+}
 
 impl Component for Home {
     type Message = ();
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self {}
+        Self {
+            state: State { products: vec![] },
+        }
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
